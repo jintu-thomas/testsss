@@ -1,0 +1,60 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url('/static/bg.jpg');
+    background-position: sticky;
+    background-repeat: no-repeat;
+
+}
+
+
+#login-panel {
+    margin-top: 25vh;
+    box-shadow: 0 8px 32px 0 rgba(68, 70, 100, 1.37);
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50vw;
+}
+#panel {
+    box-shadow: 0 8px 32px 0 rgba(68, 70, 100, 1.37);
+    backdrop-filter: blur( 24px );
+    -webkit-backdrop-filter: blur( 12px );
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1.0);
+    width: auto;
+}
+#login-panel label {
+    color: white;
+    padding-bottom: 3px;
+    font-size: 1rem;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+    width: 400px;
+    margin: auto auto;
+    font-weight: bold;
+    position: relative;
+    left: 25%;
+}
+  
+  /* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+   
+}
+  /* When moving the mouse over the close button */
+.closebtn:hover {
+color: rgb(255, 255, 255);
+}

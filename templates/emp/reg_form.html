@@ -1,0 +1,130 @@
+{% extends "emp/dashboard.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
+{% endblock css %}
+
+
+{% block title %}
+    Users List
+{% endblock title %}
+
+{% block content %}
+    <div class="content">
+<!-- ADDRESS BAR -->
+        <div class="container p-3 mx-auto" id="address-bar">
+            <div class="row">
+                <div class="col-4">
+                    <h4>EDIT USER DETAILS</h4>
+                </div>
+                <div class="col-8">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard-view' %}">Users</a></li>
+                        <li class="breadcrumb-item">User Details</li>
+                        <li class="breadcrumb-item active">Edit User Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-3 mx-auto" id="search-bar">
+            {% for err in form.errors %}
+                {{ err }}
+            {% endfor %}
+        </div>
+
+<!-- CONTENT BAR -->
+        <div class="container p-3 mx-auto" id="content-bar">
+            {% block form %}
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="container p-3">
+            <!-- ROW 1 -->
+                    <div class="form-group row p-1">
+                        <label class="col-2 form-label" for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }} *</label>
+                        {{form.first_name|add_class:"col-3"|attr:"form-control"}}
+                        <div class="col-2"></div>
+                        <label class="col-2 form-label" for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }} *</label>
+                        {{form.last_name|add_class:"col-3"|attr:"form-control"}}
+                    </div>
+                    <div class="form-group row p-1">
+                        <div class="col-5">
+                            <strong>{{ form.first_name.error|escape }}</strong>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-5">
+                            <strong>{{ form.last_name.error|escape }}</strong>
+                        </div>
+                    </div>
+            
+            <!-- ROW 2 -->
+                    <div class="form-group row p-1">
+                        <label class="col-2 form-label" for="{{ form.username.id_for_label }}">{{ form.username.label }} *</label>
+                        {{form.username|add_class:"col-3"|attr:"form-control"}}
+                        <div class="col-2"></div>
+                        <label class="col-2 form-label" for="{{ form.password.id_for_label }}">{{ form.password.label }} *</label>
+                        {{form.password|add_class:"col-3"|attr:"form-control"}}
+                    </div>
+                    <div class="form-group row p-1">
+                        <div class="col-5">
+                            <strong>{{ form.username.error|escape }}</strong>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-5">
+                            <strong>{{ form.password.error|escape }}</strong>
+                        </div>
+                    </div>
+        
+            <!-- ROW 3 -->
+                    <div class="form-group row p-1">
+                        <label class="col-2 form-label" for="{{ form.mobile_no.id_for_label }}">{{ form.mobile_no.label }} *</label>
+                        {{form.mobile_no|add_class:"col-3"|attr:"form-control"}}
+                        <div class="col-2"></div>
+                        <label class="col-2 form-label" for="{{ form.email.id_for_label }}">Email ID *</label>
+                        {{form.email|add_class:"col-3"|attr:"form-control"}}
+                    </div>
+                    <div class="form-group row p-1">
+                        <div class="col-5">
+                            <strong>{{ form.mobile_no.error|escape }}</strong>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-5">
+                            <strong>{{ form.email.error|escape }}</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-1">
+                        <label class="col-2 form-label" for="{{ form.employee_code.id_for_label }}">{{ form.employee_code.label }} *</label>
+                        {{form.employee_code|add_class:"col-3"|attr:"form-control"}}
+                       
+                    </div>
+
+                <!-- ROW 8 -->
+                    <div class="form-group px-3 ml-auto">
+                        <div class="row">
+                            <div class="col-3">
+                                <a href="{% url 'dashboard-view' %}" class="form-control btn btn-outline-danger">CANCEL</a>
+                            </div>
+                            <div class="col-6"></div>
+                            <div class="col-3 p-0">
+                                <input class="form-control btn btn-glow" type="submit" name="Register" value="SUBMIT"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            {% endblock form %}
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+
+
+
+{% endblock content %}

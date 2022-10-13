@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    
+{% endblock css %}
+{% block title %}
+    ADD Salary
+{% endblock title %}
+
+{% block content %}
+<div class="content">
+    <div class="container p-3 mx-auto" id="content-bar">
+        <div class="container p-3">
+            <h5 class="p-0 pt-2">Employee</h5>
+
+            <div class="form-group row p-1">
+                <label class="col-2 form-label" for="username">User name</label>
+                <input class="col-3" type="text" name="username" id="username" value="{{ user.username }}" disabled>
+                <div class="col-2"></div>
+                <label class="col-2 form-label" for="employee_code">Employee Code</label>
+                <input class="col-3" type="text" name="employee_code" id="employee_code" value="{{ user.employee_code }}" disabled>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

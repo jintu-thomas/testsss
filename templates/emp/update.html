@@ -1,0 +1,68 @@
+{% extends "master.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+    UPDATE EMPLOYEE
+{% endblock title %}
+
+{% block content %}
+    <div class="content">
+<!-- ADDRESS BAR -->
+        <div class="container p-3 mx-auto" id="address-bar">
+            <div class="row">
+                <div class="col-4">
+                    <h4>UPDATE Employee</h4>
+                </div>
+                <div class="col-8">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard-view' %}">Users</a></li>
+                        <li class="breadcrumb-item active">update user</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+<!-- OTHER CONTENTS -->
+        <div class="container p-3 mx-auto" id="content-bar">
+            <div class="container p-3">
+                {% block form %}
+                    <form action="" method="post">
+                        {% for err in form.errors %}
+                            {{ err }}
+                        {% endfor %}
+                        {% csrf_token %}
+                        <div class="container p-1">
+                            <h5 class="p-0 pt-2">User</h5>
+                    <!-- ROW-1 -->
+                            <div class="form-group row py-3">
+                                <label class="col-2 form-label" for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                {{form.first_name|add_class:"col-3"|attr:"form-control"}}
+                                <div class="col-2"></div>
+                                <label class="col-2 form-label" for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                {{form.last_name|add_class:"col-3"|attr:"form-control"}}
+                            </div>
+
+                            <div class="form-group row py-3">
+                                <label class="col-2 form-label" for="{{ form.mobile_no.id_for_label }}">{{ form.mobile_no.label }}</label>
+                                {{form.mobile_no|add_class:"col-3"|attr:"form-control"}}
+                                <div class="col-2"></div>
+                                <label class="col-2 form-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                                {{form.email|add_class:"col-3"|attr:"form-control"}}
+                            </div>
+                   
+                    <!-- ROW-5 -->
+                        <div class="form-group row py-3">
+                           
+                            <div class="col-6"></div>
+                            <div class="col-3">
+                                <input class="btn btn-outline-primary form-control" type="submit" name="Update" value="update" />
+                            </div>
+                        </div>
+                    </form>
+                {% endblock form %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

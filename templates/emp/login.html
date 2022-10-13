@@ -1,0 +1,54 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'users/loginstyle.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>LOGIN</title>
+</head>
+<body>
+    <div class="container p-5" id="login-panel">
+        <div class="row">
+            
+            <div class="col-6 order-1 ml-auto">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {% for err in form.errors %}
+                        {{ err }}
+                    {% endfor %}
+                    
+                    <table class="m-3 mb-0">
+                        <label class="form-label col-12" for="{{ form.email.id_for_label }}">{{ form.email.label }} *</label>
+                        {{ form.email|add_class:"col-12 p-1"|attr:"form-control" }}
+
+                        <label class="form-label col-12 mt-2" for="{{ form.password.id_for_label }}">{{ form.password.label }} *</label>
+                        {{ form.password|add_class:"col-12 p-1"|attr:"form-control" }}
+                    </table>
+                    <div class="container-fluid p-0 m-0">
+                        <div class="col-6 offset-7">
+                            <input class="btn btn-primary px-5" type="submit" name="login" value="Login" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">
+                    <span class="closebtn"  onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
