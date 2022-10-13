@@ -1,16 +1,3 @@
-:root {
-    /* LIGHT MODE */
-    --myorange : #ff9a00;
-    --mywhite : #fafafa;
-    --lightblue : #A2D5F2;
-    --deepblue : #07689F;
-
-    /* DARK MODE */
-    --darkestblue : #1B262C;
-    --darkblue : #0F4C75;
-    --blue : #3282B8;
-    --lighterblue : #BBE1FA;
-}
 #address-bar {
     position: relative;
     width: 80vw;
@@ -37,12 +24,6 @@
     background-color: var(--myorange);
     font-size: 18px;
     transition: all 0.2s;
-}
-.btn-glow:hover {
-    border: 2px solid var(--myorange);
-    color: var(--myorange);
-    background-color: var(--darkestblue);
-    font-size: 22px;
 }
 
 #table-bar {
@@ -94,47 +75,7 @@ input:disabled {
 }
 
 
-#status-bar {
-    position: relative;
-    width: 80vw;
-    margin-top: 2vh;
-}
 
-#data-block {
-    background-image: radial-gradient(var(--lighterblue), var(--mywhite));
-    border: 1px solid var(--lightblue);
-    border-radius: 10px;
-    color: var(--deepblue);
-}
 
-#tables-bar {
-    position: relative;
-    width: 80vw;
-    border: 1px solid var(--lightblue);
-    margin-top: 2vh;
-    border-radius: 10px;
-    color: var(--deepblue);
-    height: 52%;
-}
 
-small {
-    font-size: 24px;
-}
 
-#basic-bar {
-    position: relative;
-    width: 60vw;
-    margin-top: 2vh;
-    border: 1px solid var(--lightblue);
-    border-radius: 10px;
-    color: var(--deepblue);
-}
-
-#wallet-bar {
-    position: relative;
-    width: 20vw;
-    margin-top: 2vh;
-    border: 1px solid var(--lightblue);
-    border-radius: 10px;
-    color: var(--deepblue);
-}
